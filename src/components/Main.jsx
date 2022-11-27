@@ -9,20 +9,16 @@ const Main = ({onEditProfile, onAddPalce, onEditAvatar, onCardClick}) => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    api.getUserData().then(({name, about, avatar}) => {
-      setUserName(name);
-      setUserDescription(about);
-      setUserAvatar(avatar);
-    }).catch(err => {
-      console.log('error');
-    });
-
-    api.getInitialCards()
-      .then(cardsData => {
+    api.getData()
+      .then((userData) => {
+        const [{name, about, avatar}, cardsData] = userData;
+        setUserName(name);
+        setUserDescription(about);
+        setUserAvatar(avatar);
         setCards([...cardsData]);
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
       });
   }, []);
 
@@ -50,8 +46,6 @@ const Main = ({onEditProfile, onAddPalce, onEditAvatar, onCardClick}) => {
           })}
         </ul>
       </section>
-
-
     </main>
   );
 };

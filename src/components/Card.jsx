@@ -8,7 +8,7 @@ const Card = ({card, onCardClick}) => {
     <li className="card-list__item">
       <div onClick={handleClick} className="card-list__overlay">
         <button className="btn card-list__trash"></button>
-        <img src={card.link} alt="-" className="card-list__image"/>
+        <img src={card.link} alt={card.name} className="card-list__image"/>
       </div>
       <div className="card-list__description">
         <h2 className="card-list__place">{card.name}</h2>

@@ -1,4 +1,3 @@
-import './App.css';
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -42,12 +41,12 @@ function App() {
 
   return (
     <>
-
       <PopupWithForm
         name="delete-card"
         title="Вы уверены?"
         isOpen={isDeleteCardPopupOpen}
         onClose={closeAllPopups}
+        buttonText="Удалить"
       ></PopupWithForm>
 
       <PopupWithForm
@@ -55,6 +54,7 @@ function App() {
         title="Редактировать профиль"
         isOpen={isEditProfileOpen}
         onClose={closeAllPopups}
+        buttonText="Сохранить"
       >
               <input
                 id="username"
@@ -89,6 +89,7 @@ function App() {
         title="Новое место"
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
+        buttonText="Сохранить"
       >
         <input
           id="placeName"
@@ -119,6 +120,7 @@ function App() {
         title="Обновить Аватар"
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
+        buttonText="Сохранить"
       >
         <input
           id="linkAvatar"
