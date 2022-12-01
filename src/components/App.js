@@ -40,7 +40,10 @@ function App() {
     api.changeLikeStatus(card._id, isLiked)
       .then(newCard => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      });
+      })
+      .catch(err => {
+        console.log(`Произошла ошибка при лайке карточки\n${err}`);
+      })
   }
 
   const handleDeleteCard = (card) => {
@@ -49,7 +52,7 @@ function App() {
         setCards((cards) => cards.filter((c) => c._id !== card._id));
       })
       .catch(err => {
-        console.error(`Произошла ошибка при удалении карточки\n${err}`);
+        console.log(`Произошла ошибка при удалении карточки\n${err}`);
       });
   };
 
@@ -100,7 +103,7 @@ function App() {
         closeAllPopups();
       })
       .catch(err => {
-        console.log(err);
+        console.log(`Произошла ошибка при добавлении новой карточки:\n${err}`);
       });
   };
 

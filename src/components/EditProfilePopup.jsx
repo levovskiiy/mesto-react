@@ -19,7 +19,7 @@ const EditProfilePopup = ({isOpen, onClose, onUpdateUser}) => {
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser])
+  }, [currentUser, isOpen])
 
   return (
     <PopupWithForm
@@ -38,7 +38,7 @@ const EditProfilePopup = ({isOpen, onClose, onUpdateUser}) => {
         placeholder="Имя"
         minLength="2"
         maxLength="40"
-        defaultValue={name}
+        value={name || ''}
         onChange={(evt) => setName(evt.target.value)}
         required
       />
@@ -52,7 +52,7 @@ const EditProfilePopup = ({isOpen, onClose, onUpdateUser}) => {
         placeholder="Описание"
         minLength="2"
         maxLength="200"
-        defaultValue={description}
+        value={description || ''}
         onChange={(evt) => setDescription(evt.target.value)}
         required
       />
