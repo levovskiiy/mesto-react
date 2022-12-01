@@ -90,6 +90,10 @@ class Api {
     });
   }
 
+  changeLikeStatus(id, isLiked) {
+    return isLiked ? this.unlikeCard(id) : this.likeCard(id);
+  }
+
   /**
    *
    * @param {string} cardId

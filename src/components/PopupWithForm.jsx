@@ -1,4 +1,4 @@
-const PopupWithForm = ({name, title, children, isOpen, onClose, buttonText}) => {
+const PopupWithForm = ({name, title, children, isOpen, onClose, onSubmit, buttonText}) => {
   return (
     <div className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`}>
       <div className="popup__container">
@@ -7,7 +7,13 @@ const PopupWithForm = ({name, title, children, isOpen, onClose, buttonText}) => 
           type="button"
           className="popup__button popup__button_operation_close"
         ></button>
-        <form name={name} action="#" className="popup__form" noValidate>
+        <form
+          name={name}
+          action="#"
+          className="popup__form"
+          onSubmit={onSubmit}
+          noValidate
+        >
           <h3 className="popup__title">{title}</h3>
           {children}
           <button
